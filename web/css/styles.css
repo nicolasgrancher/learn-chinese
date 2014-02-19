@@ -1,0 +1,9 @@
+.sinogram {
+    text-align: center;
+}
+.sinogram .character {
+    font-size: 4em;
+}
+.sinogram .translation {
+    line-height: 8em;
+}

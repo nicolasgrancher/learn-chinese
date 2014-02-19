@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+    <div class="row sinogram">
+        <div class="col-xs-6">
+            <div class="character">{{ sinogram['character'] }}</div>
+            <em class="text-muted">{{ sinogram['pinyin'] }}</em>
+        </div>
+        <div class="col-xs-6 translation">
+            {{ sinogram['french'] }}
+        </div>
+    </div>
+{% endblock %}
