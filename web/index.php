@@ -1,8 +1,5 @@
 <?php
 // TODO Tags pour avoir thème, leçon etc.
-// TODO Caractères vus en session -> retour arrière possible pour revoir les caractères
-// TODO Timeline en haut pour voir sa position par rapport à la session
-// TODO NB de caractères vus
 // TODO Config : afficher pinyin et trad ?
 // TODO Saisie caractère via clavier + validation ?
 

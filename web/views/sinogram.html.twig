@@ -6,29 +6,17 @@
     </div>
 
     <div class="container">
+        <p>{{ history | length }} sinogrammes vus</p>
         <ul class="pager">
             {% if currentIndex > 0 %}
                 <li class="previous">
                     <a class="btn btn-" href="{{ path('history', {currentIndex: 0}) }}"><span class="glyphicon glyphicon-time"></span> Début de la session</a>
                 </li>
-                <li class="previous">
-                    <a href="{{ path('history', {currentIndex: (currentIndex - 1)}) }}"><span class="glyphicon glyphicon-chevron-left"></span> Précédent (historique)</a>
-                </li>
             {% endif %}
             <li class="next">
                 <a class="pull-right" href="{{ path('randomize') }}"><span class="glyphicon glyphicon-eye-open"></span> Nouveau sinogramme</a>
             </li>
-            {% if (currentIndex + 1) < (history | length) %}
-                <li class="next">
-                    <a class="pull-right" href="{{ path('history', {currentIndex: (currentIndex + 1)}) }}">Suivant (historique) <span class="glyphicon glyphicon-chevron-right"></span></a>
-                </li>
-            {% endif %}
         </ul>
-
-        <div class="row clearfix">
-
-
-        </div>
 
         <div class="row sinogram">
             <div class="col-xs-6">
@@ -39,5 +27,18 @@
                 {{ sinogram['french'] }}
             </div>
         </div>
+
+        <ul class="pager">
+            {% if currentIndex > 0 %}
+                <li class="previous">
+                    <a href="{{ path('history', {currentIndex: (currentIndex - 1)}) }}"><span class="glyphicon glyphicon-chevron-left"></span> Précédent (historique)</a>
+                </li>
+            {% endif %}
+            {% if (currentIndex + 1) < (history | length) %}
+                <li class="next">
+                    <a class="pull-right" href="{{ path('history', {currentIndex: (currentIndex + 1)}) }}">Suivant (historique) <span class="glyphicon glyphicon-chevron-right"></span></a>
+                </li>
+            {% endif %}
+        </ul>
     </div>
 {% endblock %}
