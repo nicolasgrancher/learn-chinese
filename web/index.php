@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 $app = new Silex\Application();
 
-$app['debug'] = true;
+//$app['debug'] = true;
 
 // definitions
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
@@ -60,6 +60,9 @@ $app->get('/{id}', function (Silex\Application $app, $id) {
 
 $app->get('/history/{currentIndex}', function (Silex\Application $app, $currentIndex) {
     $history = $app['session']->get('history');
+    if(empty($history))
+        return $app->redirect($app['url_generator']->generate('randomize'));
+
     $id = $history[$currentIndex];
 
     $sql = "SELECT * FROM sinogram WHERE id = ?";
@@ -75,11 +78,5 @@ $app->get('/history/{currentIndex}', function (Silex\Application $app, $currentI
         'currentIndex' => $currentIndex,
     ));
 })->bind('history');
-/*$app->post('/feedback', function (Request $request) {
-    $message = $request->get('message');
-    mail('feedback@yoursite.com', '[YourSite] Feedback', $message);
-
-    return new Response('Thank you for your feedback!', 201);
-});*/
 
 $app->run();

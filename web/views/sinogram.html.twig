@@ -7,10 +7,10 @@
 
     <div class="container">
         <p>{{ history | length }} sinogrammes vus</p>
-        <ul class="pager">
+        <ul id="pager-top" class="pager">
             {% if currentIndex > 0 %}
                 <li class="previous">
-                    <a class="btn btn-" href="{{ path('history', {currentIndex: 0}) }}"><span class="glyphicon glyphicon-time"></span> Début de la session</a>
+                    <a class="btn btn-" href="{{ path('history', {currentIndex: 0}) }}"><span class="glyphicon glyphicon-time"></span> Retour début</a>
                 </li>
             {% endif %}
             <li class="next">
@@ -19,26 +19,30 @@
         </ul>
 
         <div class="row sinogram">
-            <div class="col-xs-6">
+            <div class="col-xs-8">
                 <div class="character">{{ sinogram['character'] }}</div>
                 <em class="text-muted">{{ sinogram['pinyin'] }}</em>
             </div>
-            <div class="col-xs-6 translation">
+            <div class="col-xs-4 translation">
                 {{ sinogram['french'] }}
             </div>
         </div>
 
-        <ul class="pager">
-            {% if currentIndex > 0 %}
-                <li class="previous">
-                    <a href="{{ path('history', {currentIndex: (currentIndex - 1)}) }}"><span class="glyphicon glyphicon-chevron-left"></span> Précédent (historique)</a>
-                </li>
-            {% endif %}
-            {% if (currentIndex + 1) < (history | length) %}
-                <li class="next">
-                    <a class="pull-right" href="{{ path('history', {currentIndex: (currentIndex + 1)}) }}">Suivant (historique) <span class="glyphicon glyphicon-chevron-right"></span></a>
-                </li>
-            {% endif %}
-        </ul>
+        <div id="pager-bottom">
+            <div class="container">
+                <ul class="pager">
+                    {% if currentIndex > 0 %}
+                        <li class="previous">
+                            <a href="{{ path('history', {currentIndex: (currentIndex - 1)}) }}"><span class="glyphicon glyphicon-chevron-left"></span> Précédent (histo.)</a>
+                        </li>
+                    {% endif %}
+                    {% if (currentIndex + 1) < (history | length) %}
+                        <li class="next">
+                            <a class="pull-right" href="{{ path('history', {currentIndex: (currentIndex + 1)}) }}">Suivant (histo.) <span class="glyphicon glyphicon-chevron-right"></span></a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
     </div>
 {% endblock %}

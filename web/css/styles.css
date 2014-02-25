@@ -11,3 +11,10 @@
 .sinogram .translation {
     line-height: 8em;
 }
+#pager-top {
+
+}
+#pager-bottom {
+    position: absolute;
+    bottom: 0;
+}
