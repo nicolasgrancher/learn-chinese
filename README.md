@@ -4,6 +4,8 @@ Learn-chinese
 
 This app allow you to learn chinese characters.
 
+Click on "new character" to pick a random one. Each character is stored in session so you can come back ont it during you learning session.
+
 ![Screenshot from app](screenshot.png)
 
 Characters are stored in SQLite file `web/app.db`.
@@ -26,6 +28,17 @@ NGINX_PROXY_NETWORK= # network, leave empty if none
 VIRTUAL_HOST= # vhost
 LETSENCRYPT_HOST= # config for Let's Encrypt certificate
 LETSENCRYPT_EMAIL= # config for Let's Encrypt certificate
+```
+
+Edit nginx configuration `docker/nginx/default.conf` and replace "VHOST" with your domaine name :
+```
+server {
+    listen 443 ssl http2;
+    ssl_certificate /etc/letsencrypt/VHOST.crt;
+    ssl_certificate_key /etc/letsencrypt/VHOST.key;
+
+    server_name VHOST;
+    ...
 ```
 
 Launch it :
