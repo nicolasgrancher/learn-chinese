@@ -6,6 +6,8 @@ This app allow you to learn chinese characters.
 
 Click on "new character" to pick a random one. Each character is stored in session so you can come back ont it during you learning session.
 
+[![Build Status](https://travis-ci.org/nicolasgrancher/learn-chinese.svg?branch=master)](https://travis-ci.org/nicolasgrancher/learn-chinese)
+
 ![Screenshot from app](screenshot.png)
 
 Characters are stored in SQLite file `web/app.db`.

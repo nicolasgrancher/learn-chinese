@@ -1,0 +1,16 @@
+sudo: required
+
+services:
+  - docker
+
+before_install:
+  - docker-compose build
+  - docker-compose up -d
+  - docker ps
+  - cat docker-compose.yml
+
+script:
+  - docker-compose build
+  - docker-compose up -d
+  - docker-compose ps
+
